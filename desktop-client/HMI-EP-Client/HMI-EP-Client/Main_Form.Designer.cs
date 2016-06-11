@@ -1,6 +1,6 @@
 ﻿namespace HMI_EP_Client
 {
-    partial class Form1
+    partial class Main_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(809, 442);
-            this.Name = "Form1";
+            this.Name = "Main_Form";
             this.Text = "HMI Embedded Platform Client";
             this.ResumeLayout(false);
 
