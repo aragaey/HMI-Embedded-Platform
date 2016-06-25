@@ -1,0 +1,47 @@
+﻿<Window x:Class="HMI_EP.RemoteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HMI_EP"
+        xmlns:cam="clr-namespace:WebcamControl;assembly=WebcamControl"    
+        mc:Ignorable="d"
+        Title="Remote Control" Height="754" Width="1366" WindowStyle="ToolWindow" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <DataTemplate x:Key="DevicesListTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="409*"/>
+            <ColumnDefinition Width="270*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="#FF2BB0B5" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Height="500" Margin="20,117,0,0" VerticalAlignment="Top" Width="500">
+            <Label x:Name="label" Content="Connecting..." HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+        <cam:Webcam Name="WebcamCtrl" Grid.Column="1" Margin="23,120,26,130"/>
+        <Image x:Name="image" Height="205" Margin="0,20,0,0" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/ar_up.png" HorizontalAlignment="Center" Cursor="Hand" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave" MouseLeftButtonUp="image_MouseLeftButtonUp"/>
+        <Image x:Name="image_Copy" Height="205" Margin="20,270,515,0" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/ar_left.png" HorizontalAlignment="Center" Cursor="Hand" MouseEnter="image_Copy_MouseEnter" MouseLeave="image_Copy_MouseLeave" MouseLeftButtonUp="image_Copy_MouseLeftButtonUp"/>
+        <Image x:Name="image_Copy1" Height="205" Margin="528,270,20,0" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/ar_right.png" HorizontalAlignment="Center" Cursor="Hand" MouseLeave="image_Copy1_MouseLeave" MouseEnter="image_Copy1_MouseEnter" MouseLeftButtonUp="image_Copy1_MouseLeftButtonUp"/>
+        <Image x:Name="image_Copy2" Height="205" Margin="0,506,0,0" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/ar_down.png" HorizontalAlignment="Center" Cursor="Hand" MouseEnter="image_Copy2_MouseEnter" MouseLeave="image_Copy2_MouseLeave" MouseLeftButtonUp="image_Copy2_MouseLeftButtonUp"/>
+        <Label x:Name="label1" Content="Video Stream" Grid.Column="1" HorizontalAlignment="Center" Margin="15,89,444,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Configurations..." Grid.Column="1" HorizontalAlignment="Right" Margin="0,633,19,0" VerticalAlignment="Top" Width="134" Foreground="Black" Background="White" BorderBrush="#FF2BB0B5"/>
+        <Button x:Name="button_Copy" Content="Start Mission Planner..." Grid.Column="1" HorizontalAlignment="Right" Margin="0,659,19,0" VerticalAlignment="Top" Width="134" Foreground="Black" Background="White" BorderBrush="#FF2BB0B5"/>
+        <Button x:Name="button_Copy1" Content="Connect" Grid.Column="1" HorizontalAlignment="Right" Margin="0,89,19,0" VerticalAlignment="Top" Width="134" Foreground="Black" Background="White" BorderBrush="#FF2BB0B5" Click="button_Copy1_Click"/>
+        <ComboBox Height="22" Width="210" HorizontalAlignment="Left" VerticalAlignment="Top"
+                          x:Name="VideoDevicesComboBox" ItemTemplate="{StaticResource DevicesListTemplate}" Grid.Column="1" Margin="20,633,0,0" BorderBrush="#FF2BB0B5">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <Button x:Name="button1" Content="Forward" HorizontalAlignment="Center" Margin="0,241,0,0" VerticalAlignment="Top" Width="180" Height="48" Background="White" BorderBrush="#FF2BB0B5" FontSize="21.333" Click="button1_Click"/>
+        <Button x:Name="button1_Copy" Content="Backward" HorizontalAlignment="Center" Margin="319,445,319,0" VerticalAlignment="Top" Width="180" Height="48" Background="White" BorderBrush="#FF2BB0B5" FontSize="21.333" Click="button1_Copy_Click"/>
+        <Button x:Name="button1_Copy1" Content="Still" HorizontalAlignment="Center" Margin="319,308,319,0" VerticalAlignment="Top" Width="180" Height="118" Background="White" BorderBrush="#FF2BB0B5" FontSize="21.333" Click="button1_Copy1_Click"/>
+
+    </Grid>
+</Window>
